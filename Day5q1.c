@@ -2,37 +2,37 @@
 
 int main() {
     int p, q;
-    int a[100], b[100], merged[200];
+    int log1[100], log2[100], merged[200];
 
-    // Read size and elements of first log
+    // Read first log
     scanf("%d", &p);
     for (int i = 0; i < p; i++) {
-        scanf("%d", &a[i]);
+        scanf("%d", &log1[i]);
     }
 
-    // Read size and elements of second log
+    // Read second log
     scanf("%d", &q);
     for (int i = 0; i < q; i++) {
-        scanf("%d", &b[i]);
+        scanf("%d", &log2[i]);
     }
 
     int i = 0, j = 0, k = 0;
 
-    // Merge the two sorted logs
+    // Merge both sorted logs
     while (i < p && j < q) {
-        if (a[i] <= b[j]) {
-            merged[k++] = a[i++];
+        if (log1[i] <= log2[j]) {
+            merged[k++] = log1[i++];
         } else {
-            merged[k++] = b[j++];
+            merged[k++] = log2[j++];
         }
     }
 
     // Copy remaining elements
     while (i < p) {
-        merged[k++] = a[i++];
+        merged[k++] = log1[i++];
     }
     while (j < q) {
-        merged[k++] = b[j++];
+        merged[k++] = log2[j++];
     }
 
     // Print merged log
